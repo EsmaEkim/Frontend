@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    window.console.log.apply(console, ["\n %c Made with love \u2665 And Coffee - By Meds \n",
+    window.console.log.apply(console, ["\n %c Everything was coded as it should be \u2665 -By Meds \n",
     "color: #000; background: #fd0; padding:5px 0;"])
     
   }
