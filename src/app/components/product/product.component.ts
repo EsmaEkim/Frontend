@@ -48,10 +48,10 @@ export class ProductComponent implements OnInit {
 
   addToCart(product:Product){
     if(product.productId===1){
-     this.toastrService.error("Hata","Bu ürün sepete eklenemez")
+     this.toastrService.error("Dieses Produkt kann nicht zum Warenkorb hinzugefügt werden", "Warnung")
     }
     else{
-    this.toastrService.success("Sepete eklendi",product.productName)
+    this.toastrService.success("wurde zum Warenkorb hinzugefügt",product.productName)
     this.cartService.addToCart(product);
       }
   }

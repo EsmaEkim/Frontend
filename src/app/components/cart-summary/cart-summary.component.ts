@@ -25,7 +25,7 @@ export class CartSummaryComponent implements OnInit {
 
    removeFromCart(product:Product){
     this.cartService.removeFromCart(product)
-    this.toastrService.error(product.productName,"Silindi")
+    this.toastrService.error("wurde entfernt",product.productName)
    }
 
 }

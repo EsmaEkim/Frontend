@@ -19,7 +19,7 @@ export class CartService {
       let cartItem=new CartItem();
       cartItem.product=product;
       cartItem.quantity=1;
-      CartItems.push()
+      CartItems.push(cartItem)
     }
   }
 

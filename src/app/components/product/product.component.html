@@ -1,25 +1,25 @@
 <div *ngIf="dataLoaded==false" class="spinner-border text-success" role="status">
-    <span class="visually-hidden">Loading...</span>
+    <span class="visually-hidden">Wird geladen...</span>
   </div>
 
   <div class="mb-3">
-    <label for="filterText" class="form-label">Ürün ara</label>
-    <input type="text" [(ngModel)] class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
+    <label for="filterText" class="form-label">Produkt suchen</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Wonach suchen Sie?">
   </div>
 
   <div *ngIf="filterText.length>2" class="alert alert-success">
-   {{filterText}} aradınız
+   Sie haben nach {{filterText}} gesucht.
   </div>
 
 <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
             <th>Id</th>
-            <th>Ürün Adı</th>
-            <th>Kategori</th>
-            <th>Fiyat</th>
-            <th>Kdv'li Fiyat</th>
-            <th>Stok Adedi</th>
+            <th>Produktname</th>
+            <th>Kategorie</th>
+            <th>Preis</th>
+            <th>Preis inkl. MwSt.</th>
+            <th>Lagerbestand</th>
             <th></th>
 
         </tr>
@@ -32,7 +32,7 @@
             <td>{{product.unitPrice | currency}}</td>  
             <td>{{product.unitPrice | vatAdded:18 |currency}}</td>
             <td>{{product.unitsInStock}}</td>
-            <th><button (click)="addToCart(product)" type="button" class="btn btn-success"> Sepete ekle</button></th>     
+            <th><button (click)="addToCart(product)" type="button" class="btn btn-success">In den Warenkorb</button></th>     
         </tr>
     </tbody>
     
