@@ -30,13 +30,21 @@ export class ProductAddComponent implements OnInit {
     if(this.productAddForm.valid){
       let productModel= Object.assign({},this.productAddForm.value) 
       this.productService.add(productModel).subscribe(response=>{
-        console.log(response);
-        this.toastrService.success("Ürün eklendi","Başarılı")
+        this.toastrService.success(response.message,"Erfolgreich")
 
+      },responseError=>{ 
+       if(responseError.error.Errors.length>0){
+        for (let i = 0; i < responseError.error.Errors.length; i++) {
+          this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Verifizierungsfehler")
+          
+        }
+        
+       } 
+      
       })
     }
     else{
-      this.toastrService.error("Formunuz eksik","Dikkat")
+      this.toastrService.error("Ihr Formular ist unvollständig,","Warnung")
     }   
     
   }
